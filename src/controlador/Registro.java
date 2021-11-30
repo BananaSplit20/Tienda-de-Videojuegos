@@ -26,7 +26,7 @@ public class Registro {
             Connection cnx = con.obtenerConexion();
 
             date = juego.getPublicacion();
-            String query = "INSERT INTO JUEGO(titulo,programador,publicacion,precio,disponible) VALUES (?,?,?,?,?)";
+            String query = "INSERT INTO JUEGO(titulo,programador,precio,publicacion,disponible) VALUES (?,?,?,?,?)";
             PreparedStatement stmt = cnx.prepareStatement(query);
             stmt.setString(1, juego.getTitulo());
             stmt.setString(2, juego.getProgramador());
@@ -124,7 +124,7 @@ public class Registro {
             ResultSet rs = stmt.executeQuery();
 
             if (rs.next()) {
-                juego.setIdJuego(rs.getInt("idLibro"));
+                juego.setIdJuego(rs.getInt("idjuego"));
                 juego.setTitulo(rs.getString("titulo"));
                 juego.setProgramador(rs.getString("Programador"));
                 juego.setPublicacion(rs.getDate("publicacion"));
@@ -160,7 +160,7 @@ public class Registro {
 
             while (rs.next()) {
                 Juego juego = new Juego();
-                juego.setIdJuego(rs.getInt("idLibro"));
+                juego.setIdJuego(rs.getInt("idjuego"));
                 juego.setTitulo(rs.getString("titulo"));
                 juego.setProgramador(rs.getString("programador"));
                 juego.setPublicacion(rs.getDate("publicacion"));
@@ -174,14 +174,14 @@ public class Registro {
             cnx.close();
 
         } catch (SQLException e) {
-            System.out.println("Error sql al listar todos los libros" + e.getMessage());
+            System.out.println("Error sql al listar todos los juegos" + e.getMessage());
 
         }
         return lista;
 
     }
     
-    public boolean buscarLibro(List<Juego>lista,String titulo){
+    public boolean buscarJuego(List<Juego>lista,String titulo){
     
         for (Juego juego : lista){
             if (juego.getTitulo().equalsIgnoreCase(titulo)) {

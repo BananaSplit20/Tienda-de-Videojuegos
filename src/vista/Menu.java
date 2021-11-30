@@ -58,6 +58,11 @@ public class Menu extends javax.swing.JFrame {
         jMenu3.setText("Opciones");
 
         jmi_agregar.setText("Agregar");
+        jmi_agregar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmi_agregarActionPerformed(evt);
+            }
+        });
         jMenu3.add(jmi_agregar);
 
         jmi_eliminar.setText("Eliminar");
@@ -74,6 +79,11 @@ public class Menu extends javax.swing.JFrame {
         jMenu1.add(jMenu3);
 
         jmi_listar.setText("Listar Juegos");
+        jmi_listar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmi_listarActionPerformed(evt);
+            }
+        });
         jMenu1.add(jmi_listar);
 
         jmi_salir.setText("Salir");
@@ -112,6 +122,14 @@ public class Menu extends javax.swing.JFrame {
     private void jmi_salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_salirActionPerformed
            System.exit(0);
     }//GEN-LAST:event_jmi_salirActionPerformed
+
+    private void jmi_agregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_agregarActionPerformed
+    new AgregarJuego().setVisible(true);
+    }//GEN-LAST:event_jmi_agregarActionPerformed
+
+    private void jmi_listarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_listarActionPerformed
+        new ListarJuegos().setVisible(true);
+    }//GEN-LAST:event_jmi_listarActionPerformed
 
     /**
      * @param args the command line arguments
